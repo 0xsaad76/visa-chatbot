@@ -1,0 +1,62 @@
+[
+  {
+    "destination_country": "Schengen",
+    "visa_type": "Tourist",
+    "processing_time": "15-30 calendar days",
+    "visa_fee": "EUR 90 for most adults; local service fees may apply",
+    "required_documents": ["Passport", "Schengen application form", "Travel insurance", "Bank statements", "Employment letter", "Hotel booking", "Flight reservation", "Travel itinerary"],
+    "eligibility_rules": ["Passport valid for at least 3 months after planned departure", "Proof of sufficient funds", "Clear itinerary and accommodation", "Travel medical insurance with Schengen coverage"],
+    "application_steps": ["Choose main destination consulate", "Book biometrics appointment", "Prepare documents", "Submit application", "Track passport return"],
+    "notes": "Applicants should align itinerary, accommodation, insurance dates, and financial proof."
+  },
+  {
+    "destination_country": "United Kingdom",
+    "visa_type": "Standard Visitor",
+    "processing_time": "3-6 weeks depending on location and season",
+    "visa_fee": "Starts from GBP 115 for a short-term visitor visa",
+    "required_documents": ["Passport", "Online application form", "Bank statements", "Employment letter", "Accommodation details", "Travel itinerary", "Invitation letter if visiting family"],
+    "eligibility_rules": ["Genuine visitor intent", "Sufficient funds", "Strong reasons to leave the UK after visit", "No intent to live in the UK through frequent visits"],
+    "application_steps": ["Complete online form", "Pay visa fee", "Book biometrics", "Upload documents", "Attend appointment"],
+    "notes": "Explain source of funds clearly when bank deposits are recent or irregular."
+  },
+  {
+    "destination_country": "United States",
+    "visa_type": "B1/B2",
+    "processing_time": "Appointment wait times vary; post-interview processing often takes days to weeks",
+    "visa_fee": "USD 185 MRV fee for most B visitor applicants",
+    "required_documents": ["Passport", "DS-160 confirmation", "Appointment confirmation", "Proof of funds", "Employment or study proof", "Travel itinerary", "Invitation letter if applicable"],
+    "eligibility_rules": ["Temporary visit purpose", "Ability to pay for trip", "Compelling ties outside the United States", "No immigrant intent"],
+    "application_steps": ["Complete DS-160", "Pay MRV fee", "Schedule appointment", "Attend interview", "Track passport"],
+    "notes": "Interview answers should be concise, consistent, and supported by the application."
+  },
+  {
+    "destination_country": "Canada",
+    "visa_type": "Temporary Resident Visa",
+    "processing_time": "Varies by country; many cases take several weeks",
+    "visa_fee": "CAD 100 visitor visa fee plus biometrics fee where applicable",
+    "required_documents": ["Passport", "Application form", "Bank statements", "Employment letter", "Purpose of travel", "Invitation letter if applicable", "Travel history evidence"],
+    "eligibility_rules": ["Valid travel document", "Good health and admissibility", "Sufficient funds", "Intent to leave Canada after authorized stay"],
+    "application_steps": ["Create online account", "Complete forms", "Upload documents", "Provide biometrics", "Submit passport if requested"],
+    "notes": "Travel history and home-country ties can materially strengthen the application."
+  },
+  {
+    "destination_country": "Australia",
+    "visa_type": "Visitor",
+    "processing_time": "Often 2-6 weeks depending on stream and applicant profile",
+    "visa_fee": "Starts from AUD 190 for many visitor applications",
+    "required_documents": ["Passport", "Financial evidence", "Employment proof", "Travel itinerary", "Accommodation proof", "Invitation letter if applicable", "Previous travel evidence"],
+    "eligibility_rules": ["Genuine temporary entrant", "Sufficient funds", "Health and character requirements", "Clear purpose of stay"],
+    "application_steps": ["Create ImmiAccount", "Complete visitor application", "Upload evidence", "Pay fee", "Respond to any requests"],
+    "notes": "A clear genuine temporary entrant explanation is important for higher-risk profiles."
+  },
+  {
+    "destination_country": "UAE",
+    "visa_type": "Tourist",
+    "processing_time": "Usually 2-7 working days through many channels",
+    "visa_fee": "Varies by visa duration, sponsor, and service channel",
+    "required_documents": ["Passport", "Photograph", "Flight reservation", "Hotel booking or sponsor details", "Travel insurance where required"],
+    "eligibility_rules": ["Passport validity usually at least 6 months", "Valid accommodation or sponsor", "Return or onward travel evidence"],
+    "application_steps": ["Choose visa duration", "Submit passport and photo", "Provide itinerary", "Pay fee", "Receive e-visa"],
+    "notes": "Requirements can differ by airline, sponsor, and emirate-level processing channel."
+  }
+]

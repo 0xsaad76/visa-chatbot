@@ -1,0 +1,1 @@
+"""AI Visa Assistant backend."""
