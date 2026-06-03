@@ -1,3 +1,4 @@
+from app.models import User
 from sqlalchemy import ForeignKey, Integer, Numeric, String, Text
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -18,7 +19,7 @@ class VisaProfile(Base, IdMixin, TimestampMixin):
     travel_history: Mapped[str] = mapped_column(Text, default="")
     family_sponsorship: Mapped[dict] = mapped_column(JSONB, default=dict)
 
-    user: Mapped["User"] = relationship(back_populates="profiles")
+    user: Mapped[User] = relationship(back_populates="profiles")
     assessments: Mapped[list["EligibilityAssessment"]] = relationship(back_populates="profile", cascade="all, delete-orphan")
 
 
@@ -32,7 +33,7 @@ class EligibilityAssessment(Base, IdMixin, TimestampMixin):
     risk_factors: Mapped[list] = mapped_column(JSONB, default=list)
     recommendations: Mapped[list] = mapped_column(JSONB, default=list)
 
-    profile: Mapped["VisaProfile"] = relationship(back_populates="assessments")
+    profile: Mapped[VisaProfile] = relationship(back_populates="assessments")
 
 
 class VisaRequirement(Base, IdMixin, TimestampMixin):

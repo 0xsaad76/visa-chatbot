@@ -1,3 +1,5 @@
+# all the helper functions for the JWT token verification and password hashing
+
 from datetime import UTC, datetime, timedelta
 from typing import Any
 from uuid import UUID

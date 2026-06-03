@@ -10,6 +10,7 @@ def get_openai_client() -> AsyncOpenAI | None:
     return AsyncOpenAI(api_key=settings.openai_api_key)
 
 
+# this converts text to vectors numbers.
 async def embed_text(text: str) -> list[float] | None:
     settings = get_settings()
     client = get_openai_client()

@@ -8,6 +8,8 @@ from app.models import KnowledgeChunk
 from app.rag.embeddings import embed_text
 
 
+# this splits large texts into smaller chunks, these chunks are then embedded
+# which are converted to vectors to find the most relevant information.
 def chunk_text(text: str, size: int = 1100, overlap: int = 160) -> list[str]:
     clean = " ".join(text.split())
     chunks = []
@@ -23,6 +25,7 @@ def infer_destination(path: Path) -> str:
     return "United States" if stem.lower() in {"usa", "us"} else stem
 
 
+# this reads file and embeds it
 async def ingest_file(session: AsyncSession, path: Path) -> int:
     text = path.read_text(errors="ignore")
     destination = infer_destination(path)

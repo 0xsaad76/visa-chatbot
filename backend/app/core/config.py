@@ -11,12 +11,16 @@ class Settings(BaseSettings):
     openai_api_key: str | None = None
     openai_model: str = "gpt-5.2"
     openai_embedding_model: str = "text-embedding-3-small"
-    jwt_secret: str = "change-me-in-production"
+    jwt_secret: str = "secretty"
     jwt_algorithm: str = "HS256"
     jwt_expires_minutes: int = 1440
     backend_cors_origins: list[AnyHttpUrl | str] = Field(default_factory=lambda: ["http://localhost:3000"])
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(
+        env_file=(".env", "../.env"),
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 
 @lru_cache
