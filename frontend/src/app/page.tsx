@@ -1,57 +1,50 @@
 import Link from "next/link";
-import { ArrowRight, Bot, FileCheck2, Gauge, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { AuthPanel } from "@/components/layout/auth-panel";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Bot, label: "Streaming RAG assistant" },
-  { icon: Gauge, label: "Eligibility scoring" },
-  { icon: FileCheck2, label: "PDF document verification" },
-  { icon: ShieldCheck, label: "JWT-secured dashboard" }
+  "Streaming RAG assistant",
+  "Eligibility scoring",
+  "PDF document verification",
+  "JWT-secured dashboard"
 ];
 
 export default function Home() {
   return (
-    <div className="surface-grid">
-      <section className="mx-auto grid min-h-[calc(100vh-64px)] max-w-7xl items-center gap-8 px-4 py-12 lg:grid-cols-[1fr_420px]">
-        <div className="max-w-3xl space-y-8">
-          <Badge variant="accent">Visa consultancy AI platform</Badge>
-          <div className="space-y-4">
-            <h1 className="text-4xl font-semibold tracking-normal sm:text-5xl lg:text-6xl">
-              AI Visa Assistant
-            </h1>
-            <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-              Guide applicants from first question to document-ready submission with country-specific RAG answers,
-              personalized checklists, eligibility risk scoring, and PDF pre-verification.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <div key={feature.label} className="flex items-center gap-3 rounded-lg border bg-card/80 p-4">
-                  <Icon className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium">{feature.label}</span>
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild>
-              <Link href="/assistant">
-                Open assistant
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/assessment">Run assessment</Link>
-            </Button>
-          </div>
+    <section className="mx-auto grid min-h-[calc(100vh-57px)] max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-[1fr_380px]">
+      <div className="max-w-xl space-y-8">
+        <div className="space-y-4">
+          <p className="text-sm font-medium text-primary">Visa AI BOT</p>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+            Navigate visa applications with confidence
+          </h1>
+          {/* <p className="max-w-md text-[15px] leading-7 text-muted-foreground">
+            From eligibility scoring to document verification — get country-specific guidance, personalized checklists, and AI-powered answers.
+          </p> */}
         </div>
-        <AuthPanel />
-      </section>
-    </div>
+        <ul className="space-y-2.5">
+          {features.map((feature) => (
+            <li key={feature} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+              <span className="h-1 w-1 rounded-full bg-primary" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+        <div className="flex gap-3">
+          <Button asChild>
+            <Link href="/assistant">
+              Open assistant
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href="/assessment">Run assessment</Link>
+          </Button>
+        </div>
+      </div>
+      <AuthPanel />
+    </section>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Gauge, ListChecks } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -47,14 +46,11 @@ export function AssessmentForm() {
   }
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[1fr_380px]">
+    <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Gauge className="h-5 w-5 text-primary" />
-            Eligibility Assessment
-          </CardTitle>
-          <CardDescription>Capture core applicant details and calculate approval probability, risks, and recommendations.</CardDescription>
+          <CardTitle>Eligibility assessment</CardTitle>
+          <CardDescription>Enter your details to calculate approval probability and risk factors.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
@@ -68,12 +64,15 @@ export function AssessmentForm() {
               value={String(profile.annual_income)}
               onChange={(value) => update("annual_income", Number(value))}
             />
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <Label>Family sponsorship</Label>
-              <Button
+              <button
                 type="button"
-                variant={profile.family_sponsorship.has_sponsor ? "default" : "outline"}
-                className="w-full"
+                className={`w-full rounded-lg border px-3 py-2 text-sm text-left transition-colors ${
+                  profile.family_sponsorship.has_sponsor
+                    ? "border-primary/40 bg-primary/5 text-foreground"
+                    : "text-muted-foreground hover:bg-muted/60"
+                }`}
                 onClick={() =>
                   update("family_sponsorship", {
                     ...profile.family_sponsorship,
@@ -82,9 +81,9 @@ export function AssessmentForm() {
                 }
               >
                 {profile.family_sponsorship.has_sponsor ? "Sponsor available" : "No sponsor"}
-              </Button>
+              </button>
             </div>
-            <div className="space-y-2 sm:col-span-2">
+            <div className="space-y-1.5 sm:col-span-2">
               <Label htmlFor="history">Travel history</Label>
               <Textarea id="history" value={profile.travel_history} onChange={(event) => update("travel_history", event.target.value)} />
             </div>
@@ -99,26 +98,23 @@ export function AssessmentForm() {
       </Card>
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-base">
-            <ListChecks className="h-5 w-5 text-accent" />
-            Assessment Result
-          </CardTitle>
+          <CardTitle>Result</CardTitle>
         </CardHeader>
         <CardContent className="space-y-5">
-          {!result && <p className="text-sm text-muted-foreground">Your score, risk factors, and next actions appear here.</p>}
+          {!result && <p className="text-sm text-muted-foreground">Your score and recommendations will appear here.</p>}
           {result && (
             <>
               <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Eligibility score</span>
-                  <Badge variant="accent">{result.eligibility_score}/100</Badge>
+                <div className="flex items-baseline justify-between">
+                  <span className="text-sm text-muted-foreground">Score</span>
+                  <span className="text-2xl font-semibold tabular-nums">{result.eligibility_score}<span className="text-sm font-normal text-muted-foreground">/100</span></span>
                 </div>
                 <Progress value={result.eligibility_score} />
-                <Badge variant={result.approval_probability === "High" ? "accent" : "secondary"}>
-                  {result.approval_probability} approval probability
+                <Badge variant={result.approval_probability === "High" ? "accent" : "warning"}>
+                  {result.approval_probability} probability
                 </Badge>
               </div>
-              <ResultList title="Risk factors" items={result.risk_factors} empty="No major risk factors detected." />
+              <ResultList title="Risk factors" items={result.risk_factors} empty="No major risks detected." />
               <ResultList title="Recommendations" items={result.recommendations} />
             </>
           )}
@@ -131,7 +127,7 @@ export function AssessmentForm() {
 function Field({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (value: string) => void; type?: string }) {
   const id = label.toLowerCase().replaceAll(" ", "-");
   return (
-    <div className="space-y-2">
+    <div className="space-y-1.5">
       <Label htmlFor={id}>{label}</Label>
       <Input id={id} type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>
@@ -141,11 +137,11 @@ function Field({ label, value, onChange, type = "text" }: { label: string; value
 function ResultList({ title, items, empty }: { title: string; items: string[]; empty?: string }) {
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold">{title}</h3>
+      <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{title}</h3>
       {items.length === 0 && <p className="text-sm text-muted-foreground">{empty}</p>}
-      <ul className="space-y-2">
+      <ul className="space-y-1.5">
         {items.map((item) => (
-          <li key={item} className="rounded-md border p-3 text-sm text-muted-foreground">
+          <li key={item} className="rounded-lg border p-3 text-sm text-muted-foreground">
             {item}
           </li>
         ))}

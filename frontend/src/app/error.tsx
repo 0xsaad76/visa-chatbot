@@ -1,20 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10">
-      <Card>
-        <CardHeader>
-          <CardTitle>Something went wrong</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-sm text-muted-foreground">{error.message}</p>
-          <Button onClick={reset}>Try again</Button>
-        </CardContent>
-      </Card>
+    <div className="mx-auto max-w-md px-5 py-20 text-center">
+      <p className="text-sm font-medium text-destructive">Something went wrong</p>
+      <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
+      <Button className="mt-6" variant="outline" onClick={reset}>Try again</Button>
     </div>
   );
 }

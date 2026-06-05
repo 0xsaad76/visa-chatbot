@@ -2,7 +2,7 @@ import { DocumentUpload } from "@/components/documents/document-upload";
 
 export default function DocumentsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6">
+    <div className="mx-auto max-w-6xl px-5 py-8">
       <DocumentUpload />
     </div>
   );
