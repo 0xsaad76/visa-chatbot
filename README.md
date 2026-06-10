@@ -104,7 +104,3 @@ python -m app.rag.ingestion backend/kb
 ```
 
 PDF ingestion is supported by the same pipeline when `pypdf` can extract text.
-
-## Notes
-
-This project is designed as a strong professional portfolio baseline. It includes real persistence, migrations, JWT auth, streaming chat, RAG retrieval hooks, document validation logic, Docker files, and representative data. Production deployments should add managed secrets, object storage for document files, rate limits, monitoring, and legal review of visa advice disclaimers.
