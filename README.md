@@ -2,6 +2,10 @@
 
 A production-oriented full-stack portfolio project for a visa consultancy company. It combines a Next.js 15 dashboard with a FastAPI backend, PostgreSQL + pgvector storage, JWT auth, OpenAI-powered RAG chat, eligibility scoring, personalized checklists, and PDF document verification.
 
+<img width="1678" height="873" alt="image" src="https://github.com/user-attachments/assets/def45dd2-1ac5-4a56-9597-a648045af585" />
+
+https://app.eraser.io/workspace/ihQltdKfPG63e7AYyrya?origin=share
+
 ## Stack
 
 - Frontend: Next.js 15, TypeScript, TailwindCSS, shadcn-style UI primitives
